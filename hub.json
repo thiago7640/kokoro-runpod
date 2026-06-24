@@ -6,7 +6,7 @@
   "config": {
     "runsOn": "GPU",
     "gpuCount": 1,
-    "gpuIds": "NVIDIA_GEFORCE_RTX_4090",
+    "gpuIds": "NVIDIA_GEFORCE_RTX_4090,NVIDIA_RTX_A5000",
     "containerDiskInGb": 15,
     "env": {
       "PYTHONUNBUFFERED": "1"
