@@ -1,26 +1,27 @@
 # ============================================
-# USA IMAGEM OFICIAL DO KOKORO (já buildada!)
+# USA IMAGEM HWDSL2/KOKORO-SERVER (já tem tudo!)
 # ============================================
-FROM ghcr.io/remsky/kokoro-fastapi-gpu:latest
+FROM hwdsl2/kokoro-server:latest
 
 # ============================================
-# INSTALA RUNPOD SDK (só isso!)
+# INSTALA APENAS O RUNPOD SDK
 # ============================================
 RUN pip install --no-cache-dir runpod
 
 # ============================================
-# COPIA NOSSO HANDLER
+# COPIA OS ARQUIVOS DO HANDLER
 # ============================================
 WORKDIR /app
+
 COPY handler.py .
+COPY start.sh /start.sh
 
 # ============================================
-# START SCRIPT: roda Kokoro + RunPod juntos
+# TORNA O START.SH EXECUTÁVEL
 # ============================================
-COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
 # ============================================
-# COMANDO DE START
+# COMANDO DE START OBRIGATÓRIO DO RUNPOD
 # ============================================
 CMD ["/start.sh"]
