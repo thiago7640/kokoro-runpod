@@ -3,10 +3,11 @@
     {
       "name": "test_kokoro_tts",
       "input": {
-        "input": "Hello world",
+        "text": "Hello world!",     ← ✅ CERTO! O handler lê event["input"]["text"]
         "voice": "af_bella",
-        "response_format": "mp3",
+        "format": "mp3",            ← ✅ CERTO! O handler lê event["input"]["format"]
         "speed": 1.0
+        }
       },
       "timeout": 30000
     }
