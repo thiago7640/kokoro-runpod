@@ -1,3 +1,5 @@
+from unittest import result
+
 import runpod
 import requests
 import base64
@@ -61,3 +63,20 @@ def handler(job):
 # Inicia o RunPod serverless
 if __name__ == "__main__":
     runpod.serverless.start({"handler": handler})
+
+# ============================================
+# CONVERSÃO BASE64 → MP3 (adicione isso no seu PC)
+# ============================================
+# Quando você receber a resposta do RunPod, use este código:
+ 
+ # Recebe o base64 da resposta
+    audio_base64 = result["audio_base64"]
+ 
+ # Converte base64 → bytes
+    audio_bytes = base64.b64decode(audio_base64)
+ 
+ # Salva como arquivo MP3
+    with open("audio_final.mp3", "wb") as f:
+     f.write(audio_bytes)
+ 
+    print("✅ MP3 salvo!")
